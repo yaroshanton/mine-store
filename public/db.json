@@ -1,0 +1,64 @@
+{
+ "phones": [
+  {
+   "id": 0,
+   "imageUrl": "https://i1.foxtrot.com.ua/product/MediumImages/6612158_0.jpg",
+   "name": "iPhone 2",
+   "price": 100
+  },
+  {
+   "id": 1,
+   "imageUrl": "https://i1.foxtrot.com.ua/product/MediumImages/6612158_0.jpg",
+   "name": "iPhone 3",
+   "price": 200
+  },
+  {
+   "id": 2,
+   "imageUrl": "https://i1.foxtrot.com.ua/product/MediumImages/6612158_0.jpg",
+   "name": "iPhone 4",
+   "price": 300
+  },
+  {
+   "id": 3,
+   "imageUrl": "https://i1.foxtrot.com.ua/product/MediumImages/6612158_0.jpg",
+   "name": "iPhone 5",
+   "price": 400
+  },
+  {
+   "id": 4,
+   "imageUrl": "https://i1.foxtrot.com.ua/product/MediumImages/6612158_0.jpg",
+   "name": "iPhone 6",
+   "price": 500
+  },
+  {
+   "id": 5,
+   "imageUrl": "https://i1.foxtrot.com.ua/product/MediumImages/6612158_0.jpg",
+   "name": "iPhone 7",
+   "price": 600
+  },
+  {
+   "id": 6,
+   "imageUrl": "https://i1.foxtrot.com.ua/product/MediumImages/6612158_0.jpg",
+   "name": "iPhone 8",
+   "price": 700
+  },
+  {
+   "id": 7,
+   "imageUrl": "https://i1.foxtrot.com.ua/product/MediumImages/6612158_0.jpg",
+   "name": "iPhone 9",
+   "price": 800
+  },
+  {
+   "id": 8,
+   "imageUrl": "https://i1.foxtrot.com.ua/product/MediumImages/6612158_0.jpg",
+   "name": "iPhone 10",
+   "price": 900
+  },
+  {
+   "id": 9,
+   "imageUrl": "https://i1.foxtrot.com.ua/product/MediumImages/6612158_0.jpg",
+   "name": "iPhone 11",
+   "price": 1000
+  }
+ ]
+}

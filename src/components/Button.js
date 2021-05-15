@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Button = () => (
-  <a href="/cart.html" className="button button--cart">
+  <button href="/cart.html" className="button button--cart">
     <span>100 грн.</span>
     <div className="button__delimiter"></div>
     <svg
@@ -34,7 +34,7 @@ const Button = () => (
       />
     </svg>
     <span>3</span>
-  </a>
+  </button>
 );
 
 export default Button;

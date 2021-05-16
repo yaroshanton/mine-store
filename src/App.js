@@ -1,27 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import { Header } from './components';
-import { Cart, Home } from './pages';
+import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import axios from 'axios';
 
-function App() {
-  const [phones, setPhones] = useState([]);
+import { Header } from './components';
+import { Cart, Home } from './pages';
+import { setPhones } from './redux/actions/phones';
 
-  useEffect(() => {
+class App extends Component {
+  componentDidMount() {
     axios
       .get('http://localhost:3000/db.json')
-      .then(({ data }) => setPhones(data.phones));
-  }, []);
+      .then(({ data }) => {
+        this.props.setPhones(data.phones);
+      });
+  };
 
-  return (
-    <div className="wrapper">
-      <Header />
-      <div className="content">
-        <Route exact path="/" render={() => <Home items={phones} />} />
-        <Route exact path="/cart" component={Cart} />
-      </div>
-    </div >
-  );
-}
+  render() {
+    return (
+      <div className="wrapper">
+        <Header />
+        <div className="content">
+          <Route exact path="/" component={Home} />
+          <Route exact path="/cart" component={Cart} />
+        </div>
+      </div >
+    );
+  }
+};
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  setPhones: (items) => dispatch(setPhones(items))
+});
+
+export default connect(null, mapDispatchToProps)(App);

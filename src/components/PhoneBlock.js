@@ -1,7 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from './Button';
 
-function PhoneBlock({ name, imageUrl, price }) {
+
+function PhoneBlock({ id, name, imageUrl, price, onClickAddPhone, addedCount }) {
+
+  const onAddPhone = () => {
+    const obj = {
+      id, name, imageUrl, price
+    };
+    onClickAddPhone(obj);
+  };
+
   return (
     <div className="phone-block">
       <img
@@ -11,7 +21,7 @@ function PhoneBlock({ name, imageUrl, price }) {
       <h4 className="phone-block__title">{name}</h4>
       <div className="phone-block__bottom">
         <div className="phone-block__price">{price} грн.</div>
-        <div className="button button--outline button--add">
+        <Button onClick={onAddPhone} className='button--add' outline>
           <svg
             width="12"
             height="12"
@@ -23,8 +33,8 @@ function PhoneBlock({ name, imageUrl, price }) {
               fill="white" />
           </svg>
           <span>Добавить</span>
-          <i>2</i>
-        </div>
+          {addedCount && <i>{addedCount}</i>}
+        </Button>
       </div>
     </div>
   );
@@ -33,12 +43,13 @@ function PhoneBlock({ name, imageUrl, price }) {
 PhoneBlock.propTypes = {
   name: PropTypes.string.isRequired,
   imageUrl: PropTypes.string,
-  price: PropTypes.number
+  price: PropTypes.number,
+  onAddPhone: PropTypes.func,
+  addedCount: PropTypes.number
 };
 
 PhoneBlock.defaultProps = {
   imageUrl: 'http://placehold.it/150x150'
 };
-
 
 export default PhoneBlock;

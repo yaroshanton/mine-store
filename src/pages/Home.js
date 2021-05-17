@@ -1,20 +1,26 @@
 import React from 'react';
 import PhoneBlock from '../components/PhoneBlock';
 import { connect } from 'react-redux';
+import { addPhoneToCart } from '../redux/actions/actions-cart';
 
-function Home({ items }) {
+function Home({ items, handleAddPhoneToCart, cartItems }) {
   return (
     <div className="container">
       <div className="content__top"></div>
       <div className="content__items">
-        {items.map(item => <PhoneBlock key={item.id} {...item} />)}
+        {items.map(item => <PhoneBlock onClickAddPhone={handleAddPhoneToCart} key={item.id} addedCount={cartItems[item.id] && cartItems[item.id].length} {...item} />)}
       </div>
     </div>
   );
 }
 
 const mapStateToProps = (state) => ({
-  items: state.phones.items
+  items: state.phones.items,
+  cartItems: state.cart.items,
 });
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = dispatch => ({
+  handleAddPhoneToCart: (obj) => dispatch(addPhoneToCart(obj))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

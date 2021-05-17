@@ -9,7 +9,6 @@ const phones = (state = initialState, actions) => {
       items: actions.payload
     };
   }
-
   return state;
 };
 

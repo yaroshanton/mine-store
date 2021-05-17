@@ -28,17 +28,11 @@ body {
  &__items {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 
   @media (max-width: 1112px) {
    justify-content: center;
   }
- }
-
- &__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
  }
 }
 
@@ -48,7 +42,7 @@ body {
 
  &--cart {
   max-width: 820px;
-  margin: 90px auto;
+  margin: 0 auto;
   .content__title {
    margin: 0;
   }
@@ -56,12 +50,6 @@ body {
 }
 
 .cart {
- &__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
- }
-
  .content__title {
   display: flex;
   align-items: center;
@@ -113,9 +101,7 @@ body {
  &__item {
   display: flex;
   width: 100%;
-  border-top: 1px solid $gray-line;
   padding-top: 30px;
-  margin-top: 30px;
 
   &-img {
    display: flex;
@@ -233,7 +219,7 @@ body {
 
   &-buttons {
    display: flex;
-   justify-content: space-between;
+   justify-content: flex-end;
    margin-top: 40px;
 
    .go-back-btn {

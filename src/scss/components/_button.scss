@@ -95,6 +95,10 @@
   margin-right: 14px;
  }
 
+ &__cart {
+  padding-right: 10px;
+ }
+
  &--add {
   svg {
    margin-right: 2px;
@@ -134,6 +138,7 @@
   align-items: center;
   line-height: 23px;
   padding: 12px 25px;
+  justify-content: center;
 
   svg {
    margin-right: 8px;

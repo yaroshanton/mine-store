@@ -1,15 +1,15 @@
 import React from 'react';
-// import { Button } from '../components';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const Header = ({ totalPrice, totalCount }) => (
+const Header = ({ totalPrice }) => (
   <div className="header">
     <div className="container">
       <div className="header__cart">
         <Link to="/cart">
           <button href="/cart.html" className="button button--cart">
-            {totalPrice === 0 ? <span className='button__cart'>CART</span> : <><span>{totalPrice} грн.</span>
+            {totalPrice === 0 ? <span className='button__cart'>CART</span> : <><span>{totalPrice}$</span>
               <div className="button__delimiter"></div>
             </>}
             <svg
@@ -41,7 +41,6 @@ const Header = ({ totalPrice, totalCount }) => (
                 strokeLinejoin="round"
               />
             </svg>
-            {totalCount > 0 && <span>{totalCount}</span>}
           </button>
         </Link>
       </div>
@@ -49,9 +48,12 @@ const Header = ({ totalPrice, totalCount }) => (
   </div >
 );
 
+Header.propTypes = {
+  totalPrice: PropTypes.number,
+};
+
 const mapStateToProps = ({ cart }) => ({
   totalPrice: cart.totalPrice,
-  totalCount: cart.totalCount
 });
 
 export default connect(mapStateToProps)(Header);

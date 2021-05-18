@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { Header } from './components';
+
 import { Cart, Home } from './pages';
 import { fetchPhones } from './redux/actions/actions-phones';
 
@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="wrapper">
-        <Header />
+
         <div className="content">
           <Route exact path="/" component={Home} />
           <Route exact path="/cart" component={Cart} />

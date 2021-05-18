@@ -17,7 +17,7 @@ function Cart({ totalPrice, items, minusItem, plusItem, removeCartItem }) {
     console.log("Переброс на главную через 15 сек. из pages/Cart.js");
     setTimeout(() => window.location.href = "/", 15000);
   };
-  console.log(items);
+
   return (
     <div className="container container--cart">
       {totalPrice ?

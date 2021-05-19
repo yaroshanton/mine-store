@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const fetchPhones = () => dispatch => {
   axios
-    .get('http://localhost:4040/phones')
+    .get('/phones')
     .then(({ data }) => dispatch(setPhones(data)));
 };
 

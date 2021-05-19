@@ -4,6 +4,10 @@
  width: 100%;
  max-width: 200px;
 
+ @media (max-width: 560px) {
+  margin: 0 auto;
+ }
+
  input {
   margin-bottom: 20px;
   padding: 10px 10px;

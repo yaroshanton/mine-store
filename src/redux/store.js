@@ -9,7 +9,7 @@ import rootReducer from './reducers';
 const contactsPersistConfig = {
   key: 'data',
   storage,
-  blacklist: ['form', 'phones'],
+  blacklist: ['phones'],
 };
 
 const store = configureStore({

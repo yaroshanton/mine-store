@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-
 import { Cart, Home } from './pages';
 import { fetchPhones } from './redux/actions/actions-phones';
 

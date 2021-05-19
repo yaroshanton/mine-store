@@ -1,5 +1,7 @@
 
 import { configureStore } from '@reduxjs/toolkit';
+import thunk from 'redux-thunk';
+import { applyMiddleware } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import rootReducer from './reducers';
@@ -12,9 +14,7 @@ const contactsPersistConfig = {
 
 const store = configureStore({
   reducer:
-    persistReducer(contactsPersistConfig, rootReducer),
-  devTools: process.env.NODE_ENV === 'development',
-
+    persistReducer(contactsPersistConfig, rootReducer, applyMiddleware(thunk)),
 });
 
 const persistor = persistStore(store);

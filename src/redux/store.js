@@ -9,7 +9,6 @@ import rootReducer from './reducers';
 const contactsPersistConfig = {
   key: 'data',
   storage,
-  blacklist: ['phones'],
 };
 
 const store = configureStore({

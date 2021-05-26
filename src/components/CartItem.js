@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { minusCartItem, plusCartItem, removeCartItem } from '../redux/actions/actions-cart';
 
-function CartItem({ id, name, imageUrl, totalCount, minusItem, plusItem, removeItem }) {
+
+function CartItem({ data: { id, name, imageUrl }, totalCount, minusItem, plusItem, removeCartItem }) {
 
   const handleRemoveClick = () => {
-    totalCount === 1 ? removeItem(id) : minusItem(id);
+    totalCount == 1 ? removeCartItem(id) : minusItem(id);
   };
 
   const handleAddClick = () => {
@@ -47,5 +50,11 @@ CartItem.propTypes = {
   totalCount: PropTypes.number,
 };
 
+const mapDispatchToProps = dispatch => ({
+  minusItem: (id) => dispatch(minusCartItem(id)),
+  plusItem: (id) => dispatch(plusCartItem(id)),
+  removeCartItem: (id) => dispatch(removeCartItem(id))
+});
 
-export default CartItem;
+
+export default connect(null, mapDispatchToProps)(CartItem);

@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { CartItem, Form } from '../components';
-import { minusCartItem, plusCartItem, removeCartItem } from '../redux/actions/actions-cart';
 
-function Cart({ totalPrice, items, minusItem, plusItem, removeCartItem }) {
+function Cart({ totalPrice, items }) {
 
   const addedPhones = Object.keys(items).map(key => {
     return items[key].items[0];
@@ -12,8 +11,7 @@ function Cart({ totalPrice, items, minusItem, plusItem, removeCartItem }) {
 
   const handleSubmit = (values) => {
     console.log("Recipient :", values, "Order :", items);
-    alert("Thanks, Order Added");
-    localStorage.clear();
+    alert("Thanks, Order Added, Watch console!");
     console.log("Переброс на главную через 15 сек. из pages/Cart.js");
     setTimeout(() => window.location.href = "/", 15000);
   };
@@ -29,14 +27,8 @@ function Cart({ totalPrice, items, minusItem, plusItem, removeCartItem }) {
             <div className="content__items">
               {addedPhones.map(obj =>
                 <CartItem
-                  key={obj.id}
-                  id={obj.id}
-                  name={obj.name}
-                  imageUrl={obj.imageUrl}
                   totalCount={items[obj.id].items.length}
-                  minusItem={minusItem}
-                  plusItem={plusItem}
-                  removeItem={removeCartItem}
+                  data={obj}
                 />)}
             </div>
             <div className="cart__bottom">
@@ -65,10 +57,4 @@ const mapStateToProps = ({ cart }) => ({
   items: cart.items,
 });
 
-const mapDispatchToProps = dispatch => ({
-  minusItem: (id) => dispatch(minusCartItem(id)),
-  plusItem: (id) => dispatch(plusCartItem(id)),
-  removeCartItem: (id) => dispatch(removeCartItem(id))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default connect(mapStateToProps)(Cart);

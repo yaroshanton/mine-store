@@ -56,5 +56,4 @@ const mapDispatchToProps = dispatch => ({
   removeCartItem: (id) => dispatch(removeCartItem(id))
 });
 
-
 export default connect(null, mapDispatchToProps)(CartItem);
